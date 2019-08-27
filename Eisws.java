@@ -51,9 +51,9 @@ public class Eisws {
         ? m.getSOAPBody().addChildElement(oper[1], oper[0], nss.get(oper[0]))
         : m.getSOAPBody().addChildElement(oper[0]);
         while(xsr.nextTag() == xsr.START_ELEMENT) {
-            String arg = xsr.getAttributeValue(null, "name");
+            String name = xsr.getAttributeValue(null, "name");
             String text = xsr.getElementText();
-            operation.addChildElement(arg).addTextNode(text);
+            operation.addChildElement(name).addTextNode(text);
         }
         m.saveChanges();
         return m;
