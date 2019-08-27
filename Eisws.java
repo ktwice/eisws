@@ -20,7 +20,7 @@ import javax.xml.stream.XMLStreamReader;
 
 /**
  * Execute requests to EIS SOAP-services
- * @author k2-adm
+ * @author ktwice@mail.ru
  */
 public class Eisws {
     protected static final String DOCS_WSS =
