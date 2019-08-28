@@ -9,7 +9,7 @@ import javax.xml.stream.*;
 
 /**
  * Execute requests to EIS SOAP-services
- * @author k2-adm
+ * @author ktwice@mail.ru
  */
 public class Eisws {
 /**
