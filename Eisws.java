@@ -56,9 +56,12 @@ public class Eisws {
     SOAPElement e = es.length>1
         ? m.getSOAPBody().addChildElement(es[1], es[0], nss.get(es[0]))
         : m.getSOAPBody().addChildElement(es[0]);
-    while(xsr.nextTag() == XMLStreamReader.START_ELEMENT)
+    while(xsr.nextTag() == XMLStreamReader.START_ELEMENT) {
+        if(!xsr.getLocalName().equals("in"))
+            throw new Exception("unexpected tag="+xsr.getLocalName()+". Hope <in>");
         e.addChildElement(xsr.getAttributeValue(null, "name"))
             .addTextNode(xsr.getElementText());
+    }
     m.saveChanges();
     xmlOut(xprefix + fname + ".xml", m
         , connection.call(m, services.get(service)));
